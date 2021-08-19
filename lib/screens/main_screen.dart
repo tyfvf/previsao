@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:previsao/models/weather.dart';
 import 'package:previsao/screens/shared/find_icon.dart';
@@ -19,9 +20,16 @@ class MainScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.only(top: 65, bottom: 35),
+            padding: EdgeInsets.only(bottom: 35),
             child: Column(
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(onPressed: () => Phoenix.rebirth(context), icon: Icon(Icons.replay_outlined, color: Colors.white,)),
+                  ],
+                ),
+                SizedBox(height: 10,),
                 Text(
                   this.data["city"],
                   style: Theme.of(context).textTheme.headline6,
